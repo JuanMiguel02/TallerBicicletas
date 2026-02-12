@@ -1,4 +1,4 @@
-package org.demo;
+package org.demo.launcher;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("hello-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("/org/demo/hello-view.fxml")));
 
         Scene scene = new Scene(root, 600,400);
 
@@ -40,7 +40,7 @@ public class HelloApplication extends Application {
 
         stage.initStyle(StageStyle.TRANSPARENT);
 
-        stage.setTitle("Sistema de Gestión de Empleados");
+        stage.setTitle("Sistema de Gestión de Bicicletas");
         stage.setScene(scene);
         stage.show();
     }

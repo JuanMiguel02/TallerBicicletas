@@ -9,9 +9,11 @@ module org.demo {
     requires org.kordamp.ikonli.antdesignicons;
 
     opens org.demo to javafx.fxml;
+    opens org.demo.launcher to javafx.fxml;
     opens org.demo.controllers to javafx.fxml;
 
-    exports org.demo;
     exports org.demo.controllers;
     exports org.demo.models;
+    exports org.demo.launcher;
+
 }

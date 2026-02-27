@@ -27,7 +27,41 @@ public class HelloController {
     private double y = 0;
 
 
+    @FXML
+    //Metodo de prueba para abrir el dashboard principal sin crear usuarios
     public void loginAdmin() {
+
+
+        if (txtUsername.getText().isEmpty() ||
+                txtPassword.getText().isEmpty()) {
+
+            showAlert(Alert.AlertType.ERROR,
+                    "Error",
+                    "Ingrese usuario y contraseña");
+            return;
+        }
+
+        try {
+
+            // Cargar dashboard
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/org/demo/Views/Taller-view.fxml")
+            );
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.setTitle("Sistema Taller Bicicletas");
+            stage.show();
+
+            // Cerrar ventana login actual
+            Stage loginStage = (Stage) btnLogin.getScene().getWindow();
+            loginStage.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void close(){

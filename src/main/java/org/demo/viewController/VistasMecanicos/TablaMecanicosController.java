@@ -1,4 +1,4 @@
-package org.demo.controllers.VistasMecanicos;
+package org.demo.viewController.VistasMecanicos;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

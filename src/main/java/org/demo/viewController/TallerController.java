@@ -1,4 +1,4 @@
-package org.demo.controllers;
+package org.demo.viewController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

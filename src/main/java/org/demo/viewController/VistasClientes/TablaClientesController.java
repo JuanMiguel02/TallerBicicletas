@@ -1,4 +1,4 @@
-package org.demo.controllers.VistasClientes;
+package org.demo.viewController.VistasClientes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.StackPane;
 
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class TablaClientesController {
     @FXML

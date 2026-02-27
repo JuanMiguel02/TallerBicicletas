@@ -3,42 +3,93 @@ package org.demo.models;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Taller {
+public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IRegistroMecanicos {
 
     private String nombreUsuario;
     private String contrasenia;
-    private ArrayList<Bicicleta> bicicletas = new ArrayList<>();
-    private ArrayList<Cliente> clientes = new ArrayList<>();
-    private ArrayList<Mecanico> mecanicos = new ArrayList<>();
-    private ArrayList<OrdenReparacion> reparaciones = new ArrayList<>();
+    private static Taller instancia;
+    private final ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+    private final ArrayList<Cliente> clientes = new ArrayList<>();
+    private final ArrayList<Mecanico> mecanicos = new ArrayList<>();
+    private final ArrayList<OrdenReparacion> reparaciones = new ArrayList<>();
 
-    public Taller(String nombreUsuario, String contrasenia) {
-        this.nombreUsuario = nombreUsuario;
-        this.contrasenia = contrasenia;
+    private Taller() {
+        this.nombreUsuario = "taller";
+        this.contrasenia = "12345";
     }
 
-    public void registrarCliente(Cliente cliente) {
-        this.clientes.add(cliente);
+    public static Taller getInstancia() {
+        if(instancia == null){
+            instancia = new Taller();
+        }
+        return instancia;
     }
 
-    public void registrarBicicleta(Bicicleta bicicleta){
+    public boolean registrarCliente(Cliente cliente) {
+        return this.clientes.add(cliente);
+    }
+
+    public boolean registrarBicicleta(Bicicleta bicicleta){
         this.bicicletas.add(bicicleta);
+        return false;
     }
 
-    public void registrarMecanico(Mecanico mecanico){
-        this.mecanicos.add(mecanico);
+    public boolean registrarMecanico(Mecanico mecanico){
+        return this.mecanicos.add(mecanico);
     }
 
-    public void registrarOrdenReparacion(OrdenReparacion ordenReparacion){
-        this.reparaciones.add(ordenReparacion);
+    public boolean eliminarCliente(Cliente cliente){
+        return this.clientes.remove(cliente);
     }
 
-    public void crearOrden(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, int anio, String descripcionTrabajo){
+    public boolean eliminarBicicleta(Bicicleta bicicleta){
+        return this.bicicletas.remove(bicicleta);
+    }
+
+    public boolean eliminarMecanico(Mecanico mecanico){
+        return this.mecanicos.remove(mecanico);
+    }
+
+    public boolean actualizarCliente(Cliente cliente){
+        for(int i = 0; i < this.bicicletas.size(); i++){
+            if(cliente.equals(this.clientes.get(i))){
+                this.clientes.set(i, cliente);
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Bicicleta no encontrada");
+    }
+
+    public boolean actualizarBicicleta(Bicicleta bicicleta){
+        for(int i = 0; i < this.bicicletas.size(); i++){
+            if(bicicleta.equals(this.bicicletas.get(i))){
+                this.bicicletas.set(i, bicicleta);
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Bicicleta no encontrada");
+    }
+
+    public boolean actualizarMecanico(Mecanico mecanico){
+        for(int i = 0; i < this.mecanicos.size(); i++){
+            if(mecanico.equals(this.mecanicos.get(i))){
+                this.mecanicos.set(i, mecanico);
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Bicicleta no encontrada");
+    }
+
+    public boolean registrarOrdenReparacion(OrdenReparacion ordenReparacion){
+        return this.reparaciones.add(ordenReparacion);
+    }
+
+    public boolean crearOrden(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, int anio, String descripcionTrabajo){
         if(!hayMecanicoDisponible(mecanico, fechaYHora)){
             throw new IllegalArgumentException("El mecánico ya tiene un turno en esta hora");
         }
         OrdenReparacion orden = new OrdenReparacion( cliente,  bicicleta, mecanico,  fechaYHora, motivo, diagnostico,  costo,  anio, descripcionTrabajo);
-        registrarOrdenReparacion(orden);
+        return registrarOrdenReparacion(orden);
 
     }
 
@@ -63,24 +114,16 @@ public class Taller {
         return reparaciones;
     }
 
-    public void setReparaciones(ArrayList<OrdenReparacion> reparaciones) {
-        this.reparaciones = reparaciones;
-    }
-
     public ArrayList<Cliente> getClientes() {
         return clientes;
-    }
-
-    public void setClientes(ArrayList<Cliente> clientes) {
-        this.clientes = clientes;
     }
 
     public ArrayList<Bicicleta> getBicicletas() {
         return bicicletas;
     }
 
-    public void setBicicletas(ArrayList<Bicicleta> bicicletas) {
-        this.bicicletas = bicicletas;
+    public ArrayList<Mecanico> getMecanicos() {
+        return mecanicos;
     }
 
     public String getContrasenia() {

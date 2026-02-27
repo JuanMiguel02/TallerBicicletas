@@ -9,7 +9,7 @@
       spacing="15"
       xmlns="http://javafx.com/javafx/24.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.demo.controllers.VistasClientes.FormularioClienteController">
+      fx:controller="org.demo.viewController.VistasClientes.FormularioClienteController">
 
     <padding>
         <Insets top="20" right="30" bottom="20" left="30"/>

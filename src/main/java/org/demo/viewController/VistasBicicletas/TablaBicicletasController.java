@@ -1,4 +1,4 @@
-package org.demo.controllers.VistasBicicletas;
+package org.demo.viewController.VistasBicicletas;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

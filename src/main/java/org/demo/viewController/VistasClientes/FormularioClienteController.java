@@ -1,4 +1,4 @@
-package org.demo.controllers.VistasClientes;
+package org.demo.viewController.VistasClientes;
 
 import javafx.fxml.FXML;
 

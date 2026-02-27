@@ -7,7 +7,6 @@ module org.demo {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome6;
     requires org.kordamp.ikonli.antdesignicons;
-    requires org.demo;
 
     opens org.demo to javafx.fxml;
     opens org.demo.launcher to javafx.fxml;

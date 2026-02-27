@@ -7,13 +7,15 @@ public abstract class Persona {
     private String nombreCompleto;
     private String telefono;
     private String documento;
+    private String direccion;
 
-    Persona(String nombreCompleto, String telefono, String documento) {
+    Persona(String nombreCompleto, String telefono, String direccion, String documento) {
         contador++;
         this.id = contador;
         this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
         this.documento = documento;
+        this.direccion = direccion;
     }
 
     public int getId() {
@@ -46,5 +48,13 @@ public abstract class Persona {
 
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

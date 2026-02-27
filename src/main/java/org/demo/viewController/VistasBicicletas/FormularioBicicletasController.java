@@ -3,6 +3,9 @@ package org.demo.viewController.VistasBicicletas;
 import javafx.fxml.FXML;
 
 public class FormularioBicicletasController {
+
+
+
    @FXML
     private void guardarBicicleta(){
        System.out.println("Guardando");

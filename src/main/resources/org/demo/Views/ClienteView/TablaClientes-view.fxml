@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.demo.controllers.VistasClientes.TablaClientesController">
+
+
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Gestión de Clientes"/>
+
+            <Separator/>
+        </VBox>
+    </top>
+
+
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <HBox spacing="10">
+                <Button fx:id="btnNuevo"
+                        text="Nuevo Cliente"
+                        onAction="#onNuevoCliente"/>
+
+                <Button fx:id="btnEditar"
+                        text="Editar"
+                        onAction="#onEditarCliente"/>
+
+                <Button fx:id="btnEliminar"
+                        text="Eliminar"
+                        onAction="#onEliminarCliente"/>
+            </HBox>
+
+
+            <TableView fx:id="tablaClientes" VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colNombre"
+                                 text="Nombre Completo"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="colIdentificacion"
+                                 text="Identificación"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colTelefono"
+                                 text="Teléfono"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colDireccion"
+                                 text="Dirección"
+                                 prefWidth="250"/>
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

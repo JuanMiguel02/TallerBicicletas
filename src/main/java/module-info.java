@@ -15,5 +15,9 @@ module org.demo {
     exports org.demo.controllers;
     exports org.demo.models;
     exports org.demo.launcher;
+    exports org.demo.controllers.VistasClientes;
+    opens org.demo.controllers.VistasClientes to javafx.fxml;
+    opens org.demo.controllers.VistasBicicletas to javafx.fxml;
+    opens org.demo.controllers.VistasMecanicos to javafx.fxml;
 
 }

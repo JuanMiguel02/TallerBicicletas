@@ -58,7 +58,14 @@ public class FormularioServicioController {
         }
 
         try {
-                OrdenReparacion nuevaOrden = crearOrden();
+            OrdenReparacion nuevaOrden = crearOrden();
+
+            // Validación de disponibilidad del mecánico
+            if (!ordenController.hayMecanicoDisponible(nuevaOrden.getMecanico(), nuevaOrden.getFechaYHora())) {
+                mostrarAlertaError("El mecánico ya tiene otra orden a esa hora");
+                return;
+            }
+
                 if (ordenController.registrarOrden(nuevaOrden)) {
                     mostrarAlerta("Éxito", "Orden registrada correctamente", Alert.AlertType.INFORMATION);
                 } else {

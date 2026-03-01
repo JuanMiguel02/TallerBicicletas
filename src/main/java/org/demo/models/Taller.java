@@ -113,7 +113,7 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
 
     public boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
         for(OrdenReparacion orden : reparaciones){
-            if(orden.getMecanico().equals(mecanico) && orden.getFechaYHora().equals(fechaYHora)){
+            if(orden.getMecanico().equals(mecanico) && orden.getFechaYHora().equals(fechaYHora) && orden.getEstado() == EstadoOrden.EN_CURSO){
                 return false;
             }
         }

@@ -3,6 +3,8 @@ package org.demo.controller;
 import javafx.collections.ObservableList;
 import org.demo.models.*;
 
+import java.time.LocalDateTime;
+
 public class OrdenServicioController {
 
     private final Taller taller = Taller.getInstancia();
@@ -29,6 +31,10 @@ public class OrdenServicioController {
 
     public ObservableList<Mecanico> listarMecanicos(){
         return taller.getMecanicos();
+    }
+
+    public boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
+        return taller.hayMecanicoDisponible(mecanico, fechaYHora);
     }
 
 }

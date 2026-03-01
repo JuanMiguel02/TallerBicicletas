@@ -1,5 +1,7 @@
 package org.demo.models;
 
+import java.time.Year;
+
 public class Bicicleta {
 
     private String marca;
@@ -7,13 +9,15 @@ public class Bicicleta {
     private String color;
     private String numeroSerie;
     private Cliente propietario;
+    private Year anio;
 
-    public Bicicleta(String marca, TipoBicicleta tipoBicicleta, String color, String numeroSerie, Cliente propietario) {
+    public Bicicleta(String marca, TipoBicicleta tipoBicicleta, String color, String numeroSerie, Cliente propietario, Year anio) {
         this.marca = marca;
         this.tipoBicicleta = tipoBicicleta;
         this.color = color;
         this.numeroSerie = numeroSerie;
         this.propietario = propietario;
+        this.anio = anio;
     }
 
     public String getMarca() {
@@ -54,5 +58,13 @@ public class Bicicleta {
 
     public void setPropietario(Cliente propietario) {
         this.propietario = propietario;
+    }
+
+    public Year getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Year anio) {
+        this.anio = anio;
     }
 }

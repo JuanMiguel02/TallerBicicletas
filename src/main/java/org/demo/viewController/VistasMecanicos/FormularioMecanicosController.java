@@ -46,9 +46,14 @@ public class FormularioMecanicosController {
         try {
             if (mecanicoEditar == null) {
                 // MODO CREAR
-                Mecanico nuevo = crearMecanico();
-                mecanicoController.registrarMecanico(nuevo);
-                mostrarAlerta("Éxito", "Mecánico registrado", Alert.AlertType.INFORMATION);
+                Mecanico mecanicoNuevo = crearMecanico();
+
+                if(mecanicoController.registrarMecanico(mecanicoNuevo)){
+                    mostrarAlerta("Éxito", "Mecánico registrado", Alert.AlertType.INFORMATION);
+                    limpiarCampos();
+                }else{
+                    mostrarAlertaError("Este mecánico con documento: " + mecanicoNuevo.getDocumento() + " ya existe");
+                }
 
             } else {
                 // MODO EDITAR
@@ -59,8 +64,11 @@ public class FormularioMecanicosController {
                 mecanicoEditar.setSueldo(Integer.parseInt(txtSueldo.getText()));
                 mecanicoEditar.setEspecialidad(cmbEspecialidad.getValue());
 
-                mecanicoController.actualizarMecanico(mecanicoEditar);
-                mostrarAlerta("Éxito", "Mecánico actualizado", Alert.AlertType.INFORMATION);
+                if(mecanicoController.actualizarMecanico(mecanicoEditar)){
+                    mostrarAlerta("Éxito", "Mecánico actualizado", Alert.AlertType.INFORMATION);
+                    limpiarCampos();
+                }
+
             }
         }catch(Exception e){
             mostrarAlertaError("No se ha podido registrar al mecánico");

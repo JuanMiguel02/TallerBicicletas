@@ -26,6 +26,7 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
     }
 
     public boolean registrarCliente(Cliente cliente) {
+
         return this.clientes.add(cliente);
     }
 
@@ -35,6 +36,9 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
     }
 
     public boolean registrarMecanico(Mecanico mecanico){
+        if(existeMecanico(mecanico.getDocumento())){
+            return false;
+        }
         return this.mecanicos.add(mecanico);
     }
 
@@ -57,7 +61,7 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
                 return true;
             }
         }
-        throw new IllegalArgumentException("Bicicleta no encontrada");
+        throw new IllegalArgumentException("Cliente no encontrada");
     }
 
     public boolean actualizarBicicleta(Bicicleta bicicleta){
@@ -77,29 +81,38 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
                 return true;
             }
         }
-        throw new IllegalArgumentException("Bicicleta no encontrada");
+        throw new IllegalArgumentException(" Mecánico no encontrado");
     }
 
     public boolean registrarOrdenReparacion(OrdenReparacion ordenReparacion){
         return this.reparaciones.add(ordenReparacion);
     }
 
-    public boolean crearOrden(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, int anio, String descripcionTrabajo){
+    public boolean crearOrden(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, String descripcionTrabajo){
         if(!hayMecanicoDisponible(mecanico, fechaYHora)){
             throw new IllegalArgumentException("El mecánico ya tiene un turno en esta hora");
         }
-        OrdenReparacion orden = new OrdenReparacion( cliente,  bicicleta, mecanico,  fechaYHora, motivo, diagnostico,  costo,  anio, descripcionTrabajo);
+        OrdenReparacion orden = new OrdenReparacion( cliente,  bicicleta, mecanico,  fechaYHora, motivo, diagnostico,  costo, descripcionTrabajo);
         return registrarOrdenReparacion(orden);
 
     }
 
-    private boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
+    public boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
         for(OrdenReparacion orden : reparaciones){
             if(orden.getMecanico().equals(mecanico) && orden.getFechaYHora().equals(fechaYHora)){
                 return false;
             }
         }
         return true;
+    }
+
+    public boolean existeMecanico(String documento){
+        for(Mecanico mecanico : this.mecanicos){
+            if(mecanico.getDocumento().equals(documento)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getNombreUsuario() {

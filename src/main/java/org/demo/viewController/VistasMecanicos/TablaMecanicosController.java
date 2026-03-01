@@ -131,7 +131,7 @@ public class TablaMecanicosController {
         mecanicoSeleccionado = tablaMecanicos.getSelectionModel().getSelectedItem();
 
         if(mecanicoSeleccionado == null){
-            mostrarAlertaError("Por favor seleccione un cliente para eliminar");
+            mostrarAlertaError("Por favor seleccione un mecánico para eliminar");
             return;
         }
 
@@ -143,9 +143,10 @@ public class TablaMecanicosController {
 
         confirmacion.showAndWait().ifPresent(respuesta ->{
             if(respuesta == ButtonType.OK){
-               mecanicoController.eliminarMecanico(mecanicoSeleccionado);
+               if(mecanicoController.eliminarMecanico(mecanicoSeleccionado)){
+                   mostrarAlerta("Éxito", "Mecánico Eliminado Éxitosamente", Alert.AlertType.INFORMATION  );
+               }
                cargarMecanicos();
-                mostrarAlerta("Éxito", "Mecánico Eliminado Éxitosamente", Alert.AlertType.INFORMATION  );
             }
         });
 

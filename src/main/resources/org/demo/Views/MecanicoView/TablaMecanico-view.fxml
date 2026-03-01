@@ -10,55 +10,55 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.VistasMecanicos.TablaMecanicosController">
+<BorderPane styleClass="main-container" stylesheets="@../../styles/FormularioTablas.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.VistasMecanicos.TablaMecanicosController">
 
-
+    <!-- ================= HEADER ================= -->
     <top>
-        <VBox spacing="10">
+        <VBox spacing="10" styleClass="header-container">
             <padding>
                 <Insets bottom="10" left="20" right="20" top="20" />
             </padding>
 
-            <Label text="Gestión de Mecanicos" />
+            <Label styleClass="title-label" text="Gestión de Mecánicos" />
 
             <Separator />
         </VBox>
     </top>
 
-
+    <!-- ================= CENTER ================= -->
     <center>
-        <VBox spacing="15">
+        <VBox spacing="15" styleClass="content-container">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="10" />
             </padding>
 
-            <HBox spacing="10">
-                <Button fx:id="btnNuevo" onAction="#onNuevoMecanico" text="Nuevo Mecanico" />
+            <!-- BOTONES -->
+            <HBox spacing="10" styleClass="actions-bar">
 
-                <Button fx:id="btnEditar" onAction="#onEditarMecanico" text="Editar" />
+                <Button fx:id="btnNuevo" onAction="#onNuevoMecanico" styleClass="btn-primary" text="Nuevo Mecánico" />
 
-                <Button fx:id="btnEliminar" onAction="#onEliminarMecanico" text="Eliminar" />
+                <Button fx:id="btnEditar" onAction="#onEditarMecanico" styleClass="btn-primary" text="Editar" />
+
+                <Button fx:id="btnEliminar" onAction="#onEliminarMecanico" styleClass="btn-danger" text="Eliminar" />
+
             </HBox>
 
-
-            <TableView fx:id="tablaMecanicos" VBox.vgrow="ALWAYS">
+            <!-- TABLA -->
+            <TableView fx:id="tablaMecanicos" styleClass="custom-table" VBox.vgrow="ALWAYS">
 
                 <columns>
-                    <TableColumn fx:id="colCodigoMecanico" prefWidth="145.0" text="Código " />
-
-                    <TableColumn fx:id="colNombreCompleto" prefWidth="202.0" text="Nombre Completo" />
-
-                    <TableColumn fx:id="colDocumento" prefWidth="153.0" text="Documento" />
-               <TableColumn fx:id="colTelefono" prefWidth="200" text="Telefono" />
-               <TableColumn fx:id="colDireccion" prefWidth="200" text="Dirección" />
-               <TableColumn fx:id="colSueldo" prefWidth="150.0" text="Sueldo" />
-               <TableColumn fx:id="colEspecialidad" prefWidth="250.0" text="Especialidad" />
-
-
+                    <TableColumn fx:id="colCodigoMecanico" text="Código" />
+                    <TableColumn fx:id="colNombreCompleto" text="Nombre Completo" />
+                    <TableColumn fx:id="colDocumento" text="Documento" />
+                    <TableColumn fx:id="colTelefono" text="Teléfono" />
+                    <TableColumn fx:id="colDireccion" text="Dirección" />
+                    <TableColumn fx:id="colSueldo" text="Sueldo" />
+                    <TableColumn fx:id="colEspecialidad" text="Especialidad" />
                 </columns>
-            <columnResizePolicy>
-               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
+
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
 
             </TableView>
 

@@ -25,19 +25,19 @@
                 </AnchorPane>
                 <AnchorPane layoutX="546.0" layoutY="-5.0" prefHeight="720.0" prefWidth="734.0" styleClass="right-form" stylesheets="@styles/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="546.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label layoutX="301.0" layoutY="85.0" text="Bienvenido">
+                        <Label layoutX="245.0" layoutY="92.0" text="Bienvenido">
                             <font>
-                                <Font name="System Bold" size="25.0" />
+                                <Font name="System Bold" size="49.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="txtUsername" layoutX="175.0" layoutY="174.0" prefHeight="36.0" prefWidth="439.0" promptText="Usuario" styleClass="textfield" />
-                        <Button fx:id="btnLogin" layoutX="262.0" layoutY="383.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="52.0" prefWidth="222.0" styleClass="login-btn" text="Iniciar Sesión" />
+                        <TextField fx:id="txtUsername" layoutX="155.0" layoutY="216.0" prefHeight="36.0" prefWidth="439.0" promptText="Usuario" styleClass="textfield" />
+                        <Button fx:id="btnLogin" layoutX="263.0" layoutY="468.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="52.0" prefWidth="222.0" styleClass="login-btn" text="Iniciar Sesión" />
                         <Button fx:id="btnClose" layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" prefHeight="24.0" prefWidth="55.0" styleClass="close">
                             <graphic>
                                 <FontIcon iconLiteral="anto-close" iconSize="20" text="" textAlignment="CENTER" wrappingWidth="38.0" />
                             </graphic>
                         </Button>
-                        <PasswordField fx:id="txtPassword" layoutX="175.0" layoutY="253.0" prefHeight="36.0" prefWidth="439.0" promptText="Contraseña" styleClass="textfield" />
+                        <PasswordField fx:id="txtPassword" layoutX="155.0" layoutY="307.0" prefHeight="36.0" prefWidth="439.0" promptText="Contraseña" styleClass="textfield" />
                     </children>
                 </AnchorPane>
             </children>

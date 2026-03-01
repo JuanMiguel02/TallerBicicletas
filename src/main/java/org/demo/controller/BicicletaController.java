@@ -5,8 +5,6 @@ import org.demo.models.Bicicleta;
 import org.demo.models.Cliente;
 import org.demo.models.Taller;
 
-import java.util.List;
-
 public class BicicletaController {
 
     private final Taller taller = Taller.getInstancia();

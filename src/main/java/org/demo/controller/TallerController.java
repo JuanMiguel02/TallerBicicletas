@@ -6,8 +6,6 @@ import org.demo.models.Cliente;
 import org.demo.models.OrdenReparacion;
 import org.demo.models.Taller;
 
-import java.util.List;
-
 public class TallerController {
 
     private final Taller taller = Taller.getInstancia();

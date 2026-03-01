@@ -3,7 +3,6 @@ package org.demo.controller;
 import javafx.collections.ObservableList;
 import org.demo.models.Cliente;
 import org.demo.models.Taller;
-import java.util.List;
 
 public class ClienteController {
 

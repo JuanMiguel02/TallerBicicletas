@@ -61,7 +61,6 @@ public class HistorialBicicletaController {
         );
     }
 
-    // 🔥 ESTE MÉTODO SE LLAMA DESDE LA VISTA ANTERIOR
     public void setBicicleta(Bicicleta bicicleta) {
         this.bicicletaSeleccionada = bicicleta;
 

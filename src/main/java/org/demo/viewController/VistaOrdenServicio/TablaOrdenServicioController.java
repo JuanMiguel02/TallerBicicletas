@@ -2,8 +2,6 @@ package org.demo.viewController.VistaOrdenServicio;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -156,8 +154,11 @@ public class TablaOrdenServicioController {
         confirmacion.showAndWait().ifPresent(respuesta -> {
             if (respuesta == ButtonType.OK) {
                 ordenSeleccionada.marcarCompletado();
-                ordenController.actualizarOrden(ordenSeleccionada);
-                tablaOrdenes.refresh();
+                if(ordenController.actualizarOrden(ordenSeleccionada)){
+                    tablaOrdenes.refresh();
+                    mostrarAlerta("Éxito", "Orden completada correctamente",  Alert.AlertType.INFORMATION);
+                }
+
             }
         });
 

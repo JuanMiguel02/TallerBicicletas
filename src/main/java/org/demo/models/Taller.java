@@ -94,7 +94,7 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
                 return true;
             }
         }
-        throw new IllegalArgumentException(" Mecánico no encontrado");
+        throw new IllegalArgumentException("Mecánico no encontrado");
     }
 
     public boolean actualizarOrden(OrdenReparacion orden){

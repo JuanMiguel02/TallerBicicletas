@@ -3,8 +3,6 @@ package org.demo.controller;
 import javafx.collections.ObservableList;
 import org.demo.models.*;
 
-import java.util.List;
-
 public class OrdenServicioController {
 
     private final Taller taller = Taller.getInstancia();
@@ -23,10 +21,6 @@ public class OrdenServicioController {
 
     public ObservableList<OrdenReparacion> listarOrdenes(){
         return taller.getReparaciones();
-    }
-
-    public ObservableList<Cliente> listarClientes(){
-        return taller.getClientes();
     }
 
     public ObservableList<Bicicleta> listarBicicletas(){

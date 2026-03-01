@@ -4,8 +4,6 @@ import javafx.collections.ObservableList;
 import org.demo.models.Mecanico;
 import org.demo.models.Taller;
 
-import java.util.List;
-
 public class MecanicoController {
 
     private final Taller taller = Taller.getInstancia();

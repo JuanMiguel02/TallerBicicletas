@@ -100,7 +100,7 @@ public class TablaClientesController {
         try{
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
-                            "/org/demo/Views/MecanicoView/FormularioMecanico-view.fxml"
+                            "/org/demo/Views/ClienteView/FormularioCliente-view.fxml"
                     )
             );
 

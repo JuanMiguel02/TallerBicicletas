@@ -52,31 +52,16 @@ public class TablaBicicletasController {
 
     private void inicializarTabla() {
 
-        colMarca.setCellValueFactory(cell ->
-                new SimpleStringProperty(cell.getValue().getMarca()));
-
-        colTipo.setCellValueFactory(cell ->
-                new SimpleStringProperty(cell.getValue().getTipoBicicleta().toString()));
-
-        colColor.setCellValueFactory(cell ->
-                new SimpleStringProperty(cell.getValue().getColor()));
-
-        colSerial.setCellValueFactory(cell ->
-                new SimpleStringProperty(cell.getValue().getNumeroSerie()));
-
-        colAnio.setCellValueFactory(cell ->
-                new SimpleIntegerProperty(cell.getValue().getAnio().getValue()));
-
-        colPropietario.setCellValueFactory(cell ->
-                new SimpleStringProperty(
-                        cell.getValue().getPropietario().toString()
-                ));
+        colMarca.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getMarca()));
+        colTipo.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTipoBicicleta().toString()));
+        colColor.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getColor()));
+        colSerial.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getNumeroSerie()));
+        colAnio.setCellValueFactory(cell -> new SimpleIntegerProperty(cell.getValue().getAnio().getValue()));
+        colPropietario.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getPropietario().toString()));
     }
 
     private void cargarBicicletas() {
-        listaBicicletas = FXCollections.observableArrayList(
-                bicicletaController.listarBicicletas()
-        );
+        listaBicicletas = FXCollections.observableArrayList(bicicletaController.listarBicicletas());
         tablaBicicletas.setItems(listaBicicletas);
     }
 
@@ -104,8 +89,7 @@ public class TablaBicicletasController {
     @FXML
     private void onEditarBicicleta() {
 
-        bicicletaSeleccionada =
-                tablaBicicletas.getSelectionModel().getSelectedItem();
+        bicicletaSeleccionada = tablaBicicletas.getSelectionModel().getSelectedItem();
 
         if (bicicletaSeleccionada == null) {
             mostrarAlertaError("Por favor seleccione una bicicleta para actualizar");
@@ -125,9 +109,7 @@ public class TablaBicicletasController {
             FormularioBicicletasController controller = loader.getController();
             controller.setBicicleta(bicicletaSeleccionada);
 
-            StackPane contenedor =
-                    (StackPane) tablaBicicletas.getScene()
-                            .lookup("#contenedorCentro");
+            StackPane contenedor = (StackPane) tablaBicicletas.getScene().lookup("#contenedorCentro");
 
             contenedor.getChildren().setAll(formulario);
 
@@ -139,8 +121,7 @@ public class TablaBicicletasController {
     @FXML
     private void onEliminarBicicleta() {
 
-        bicicletaSeleccionada =
-                tablaBicicletas.getSelectionModel().getSelectedItem();
+        bicicletaSeleccionada = tablaBicicletas.getSelectionModel().getSelectedItem();
 
         if (bicicletaSeleccionada == null) {
             mostrarAlertaError("Por favor seleccione una bicicleta para eliminar");
@@ -150,23 +131,15 @@ public class TablaBicicletasController {
         Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
         confirmacion.setTitle("Confirmar eliminación");
         confirmacion.setHeaderText("¿Está seguro que desea eliminar esta bicicleta?");
-        confirmacion.setContentText(
-                "Bicicleta " + bicicletaSeleccionada.getMarca() +
-                        " - Serial: " + bicicletaSeleccionada.getNumeroSerie()
-        );
+        confirmacion.setContentText("Bicicleta " + bicicletaSeleccionada.getMarca() + " - Serial: " + bicicletaSeleccionada.getNumeroSerie());
 
         confirmacion.showAndWait().ifPresent(respuesta -> {
 
             if (respuesta == ButtonType.OK) {
 
                 if (bicicletaController.eliminarBicicleta(bicicletaSeleccionada)) {
-
-                    mostrarAlerta("Éxito",
-                            "Bicicleta eliminada exitosamente",
-                            Alert.AlertType.INFORMATION);
-                }
-
-                cargarBicicletas();
+                    mostrarAlerta("Éxito", "Bicicleta eliminada exitosamente", Alert.AlertType.INFORMATION);}
+                    cargarBicicletas();
             }
         });
     }

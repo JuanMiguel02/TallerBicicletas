@@ -16,6 +16,7 @@ import org.demo.viewController.VistasMecanicos.FormularioMecanicosController;
 
 import java.util.Objects;
 
+import static org.demo.services.ServicioAlerta.mostrarAlerta;
 import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 
 public class TablaClientesController {
@@ -134,8 +135,10 @@ public class TablaClientesController {
 
         confirmacion.showAndWait().ifPresent(respuesta ->{
             if(respuesta == ButtonType.OK){
-                clienteController.eliminarCliente(clienteSeleccionado);
-                cargarClientes();
+                if( clienteController.eliminarCliente(clienteSeleccionado)){
+                    mostrarAlerta("Éxito", "Cliente eliminado éxitosamente", Alert.AlertType.INFORMATION);
+                    cargarClientes();
+                }
             }
         });
     }

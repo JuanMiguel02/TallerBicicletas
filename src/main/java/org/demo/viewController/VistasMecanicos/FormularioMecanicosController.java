@@ -43,6 +43,12 @@ public class FormularioMecanicosController {
 
     @FXML
     private void guardarMecanico(){
+
+        if(validarCampos()){
+            mostrarAlertaError("Por favor rellene todos los campos");
+            return;
+        }
+
         try {
             if (mecanicoEditar == null) {
                 // MODO CREAR
@@ -100,6 +106,11 @@ public class FormularioMecanicosController {
         txtSueldo.clear();
         txtTelefono.clear();
         cmbEspecialidad.getSelectionModel().clearSelection();
+    }
+
+    private boolean validarCampos(){
+        return !txtNombre.getText().isEmpty() && !txtDireccion.getText().isEmpty() && !txtDocumento.getText().isEmpty()  && !txtSueldo.getText().isEmpty() &&  !txtTelefono.getText().isEmpty()
+                && cmbEspecialidad.getValue() != null;
     }
 
     public void setMecanico(Mecanico mecanico){

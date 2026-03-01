@@ -7,8 +7,6 @@ import org.demo.models.Cliente;
 import static org.demo.services.ServicioAlerta.mostrarAlerta;
 import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 
-import javafx.fxml.FXML;
-
 public class FormularioClienteController {
 
     private final ClienteController clienteController=new ClienteController();
@@ -29,11 +27,21 @@ public class FormularioClienteController {
 
     @FXML
     private void  guardarCliente (){
+
+        if(!validarCampos()){
+            mostrarAlertaError("Por favor rellene todos los campos");
+            return;
+        }
+
         try{
             if(clienteEditar==null){
                 Cliente nuevo=crearCliente();
-                clienteController.registrarCliente(nuevo);
-                mostrarAlerta("Exito", "Cliente registrado correctamente", Alert.AlertType.INFORMATION);
+                if(clienteController.registrarCliente(nuevo)){
+                    mostrarAlerta("Exito", "Cliente registrado correctamente", Alert.AlertType.INFORMATION);
+
+                }else{
+                    mostrarAlertaError("Este cliente con documento: " + nuevo.getDocumento() + " ya existe");
+                }
 
             }else {
                 clienteEditar.setNombreCompleto(txtNombre.getText());
@@ -41,8 +49,9 @@ public class FormularioClienteController {
                 clienteEditar.setDocumento(txtDocumento.getText());
                 clienteEditar.setDireccion(txtDireccion.getText());
 
-                clienteController.actualizarCliente(clienteEditar);
-                mostrarAlerta("Exito", "Cliente registrado correctamente", Alert.AlertType.INFORMATION);
+                if(clienteController.actualizarCliente(clienteEditar)){
+                    mostrarAlerta("Exito", "Cliente registrado correctamente", Alert.AlertType.INFORMATION);
+                }
             }
             limpiarCampos();
         } catch (Exception e) {
@@ -70,6 +79,10 @@ public class FormularioClienteController {
         txtNombre.clear();
         txtTelefono.clear();
         clienteEditar=null;
+    }
+
+    private boolean validarCampos(){
+        return !txtNombre.getText().isEmpty() && !txtTelefono.getText().isEmpty() && !txtDocumento.getText().isEmpty() && !txtDireccion.getText().isEmpty();
     }
 
     public void setCliente(Cliente cliente){

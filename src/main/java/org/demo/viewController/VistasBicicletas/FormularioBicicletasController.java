@@ -81,7 +81,9 @@ public class FormularioBicicletasController {
 
                 if(bicicletaController.registrarBicicleta(nueva)){
                     mostrarAlerta("Éxito", "Bicicleta registrada correctamente", Alert.AlertType.INFORMATION);
-                    limpiarCampos();
+                }
+                else{
+                    mostrarAlertaError("Esta bicicleta con número de serie: " + nueva.getNumeroSerie() + " ya existe");
                 }
 
             } else {
@@ -96,9 +98,8 @@ public class FormularioBicicletasController {
 
                 if(bicicletaController.actualizarBicicleta(bicicletaEditar)){
                     mostrarAlerta("Éxito", "Bicicleta actualizada correctamente", Alert.AlertType.INFORMATION);
-                    limpiarCampos();
                 }
-
+                limpiarCampos();
             }
 
         }

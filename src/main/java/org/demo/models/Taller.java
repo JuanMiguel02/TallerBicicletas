@@ -26,10 +26,16 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
     }
 
     public boolean registrarCliente(Cliente cliente) {
+        if(existeCliente(cliente.getDocumento())){
+            return false;
+        }
         return this.clientes.add(cliente);
     }
 
-    public boolean registrarBicicleta(Bicicleta bicicleta){
+    public boolean registrarBicicleta(Bicicleta bicicleta) {
+        if(existeBicicleta(bicicleta.getNumeroSerie())){
+            return false;
+        }
        return this.bicicletas.add(bicicleta);
     }
 
@@ -99,6 +105,24 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
     public boolean existeMecanico(String documento){
         for(Mecanico mecanico : this.mecanicos){
             if(mecanico.getDocumento().equals(documento)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean existeCliente(String documento){
+        for(Cliente cliente : this.clientes){
+            if(cliente.getDocumento().equals(documento)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean existeBicicleta(String serie) {
+        for (Bicicleta bicicleta: this.bicicletas) {
+            if (bicicleta.getNumeroSerie().equals(serie)) {
                 return true;
             }
         }

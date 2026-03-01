@@ -46,16 +46,16 @@
             <TableView fx:id="tablaBicicletas" VBox.vgrow="ALWAYS">
 
                 <columns>
-                    <TableColumn fx:id="colMarca" prefWidth="200" text="Marca" />
+                    <TableColumn fx:id="colMarca" prefWidth="129.0" text="Marca" />
 
-                    <TableColumn fx:id="colTipo" prefWidth="150" text="Tipo" />
+                    <TableColumn fx:id="colTipo" prefWidth="140.0" text="Tipo" />
 
-                    <TableColumn fx:id="colColor" prefWidth="150" text="Color" />
+                    <TableColumn fx:id="colColor" prefWidth="154.0" text="Color" />
 
-                    <TableColumn fx:id="colSerial" prefWidth="250" text="Serial" />
+                    <TableColumn fx:id="colSerial" prefWidth="199.0" text="Serial" />
 
-                    <TableColumn fx:id="colAnio" prefWidth="150" text="Año" />
-               <TableColumn fx:id="colPropietario" prefWidth="150" text="Propietario" />
+                          <TableColumn fx:id="colAnio" prefWidth="95.0" text="Año" />
+               <TableColumn fx:id="colPropietario" prefWidth="333.0" text="Propietario" />
                 </columns>
 
 

@@ -126,7 +126,7 @@ public class DashboardTallerController {
 
             Parent login = FXMLLoader.load(
                     Objects.requireNonNull(getClass().getResource(
-                            "/org/demo/hello-view.fxml"
+                            "/org/demo/inicio.fxml"
                     ))
             );
 

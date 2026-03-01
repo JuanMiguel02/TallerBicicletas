@@ -22,7 +22,7 @@ public class Cliente extends Persona {
     @Override
     public String toString() {
         return "Cliente: " +
-                "nombreCompleto='" + getNombreCompleto() + '\'' +
-                ", documento='" + getDocumento() + '\'' ;
+                "nombreCompleto='" + getNombreCompleto() +
+                ", documento='" + getDocumento();
     }
 }

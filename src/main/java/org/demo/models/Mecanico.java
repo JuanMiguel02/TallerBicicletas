@@ -41,6 +41,6 @@ public class Mecanico extends Persona {
     @Override
     public String toString() {
         return "Mecanico: " + getNombreCompleto() +
-                "CÓdigo Interno='" + codigoInterno + '\'' ;
+                " Código Interno: " + codigoInterno + '\'' ;
     }
 }

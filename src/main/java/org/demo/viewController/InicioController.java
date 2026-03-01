@@ -11,6 +11,7 @@ import org.demo.models.Taller;
 
 import java.util.Objects;
 
+import static org.demo.services.ServicioAlerta.mostrarAlerta;
 import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 
 public class InicioController {
@@ -23,6 +24,8 @@ public class InicioController {
     @FXML
     private TextField txtUsername;
 
+    @FXML
+    private Button btnLogin;
 
     private double x = 0;
     private double y = 0;
@@ -42,6 +45,9 @@ public class InicioController {
         try {
 
             if(txtUsername.getText().equals(taller.getNombreUsuario()) && txtPassword.getText().equals(taller.getContrasenia())){
+
+                mostrarAlerta("Éxito", "Inicio de Sesión Éxitoso", Alert.AlertType.INFORMATION);
+                btnLogin.getScene().getWindow().hide();
                 // Cargar dashboard
                 Parent root = FXMLLoader.load(
                         Objects.requireNonNull(getClass().getResource("/org/demo/Views/Taller-view.fxml"))
@@ -69,6 +75,7 @@ public class InicioController {
                 // Cerrar ventana login actual
                 stage.setScene(scene);
                 stage.show();
+
             }else{
                 mostrarAlertaError("Usuario o contraseña inválidos");
             }

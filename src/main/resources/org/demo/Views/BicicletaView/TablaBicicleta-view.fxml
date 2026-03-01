@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.demo.viewController.VistasBicicletas.TablaBicicletasController">
+
+    <!-- TITULO -->
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Gestión de Bicicletas"/>
+
+            <Separator/>
+        </VBox>
+    </top>
+
+    <!-- BOTONES -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <HBox spacing="10">
+                <Button fx:id="btnNuevo"
+                        text="Nueva Bicicleta"
+                        onAction="#onNuevaBicicleta"/>
+
+                <Button fx:id="btnHistorial"
+                        text="Historial de servicio"
+                        onAction="#onHistorialServicio"/>
+
+                <Button fx:id="btnEditar"
+                        text="Editar"
+                        onAction="#onEditarBicicleta"/>
+
+                <Button fx:id="btnEliminar"
+                        text="Eliminar"
+                        onAction="#onEliminarBicicleta"/>
+            </HBox>
+
+            <!-- TABLA -->
+            <TableView fx:id="tablaBicicletas" VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colMarca"
+                                 text="Marca"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="colTipo"
+                                 text="Tipo"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colColor"
+                                 text="Color"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colSerial"
+                                 text="Serial"
+                                 prefWidth="250"/>
+
+                    <TableColumn fx:id="colAnio"
+                                 text="Año"
+                                 prefWidth="150"/>
+                </columns>
+
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

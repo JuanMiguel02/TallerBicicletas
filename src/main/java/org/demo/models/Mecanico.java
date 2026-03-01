@@ -3,7 +3,7 @@ package org.demo.models;
 public class Mecanico extends Persona {
 
     private static int contadorMecanicos = 1;
-    private String codigoInterno;
+    private final String codigoInterno;
     private int sueldo;
     private EspecialidadMecanico especialidad;
 
@@ -38,7 +38,9 @@ public class Mecanico extends Persona {
         return codigoInterno;
     }
 
-    public void setCodigoInterno(String codigoInterno) {
-        this.codigoInterno = codigoInterno;
+    @Override
+    public String toString() {
+        return "Mecanico: " + getNombreCompleto() +
+                "CÓdigo Interno='" + codigoInterno + '\'' ;
     }
 }

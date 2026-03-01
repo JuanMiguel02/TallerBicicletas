@@ -6,13 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.demo.models.Taller;
+
+import java.util.Objects;
+
+import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 
 public class InicioController {
-    @FXML
-    private Button btnClose;
 
-    @FXML
-    private Button btnLogin;
+    private final Taller taller = Taller.getInstancia();
 
     @FXML
     private PasswordField txtPassword;
@@ -30,35 +33,48 @@ public class InicioController {
     public void loginAdmin() {
 
 
-        if (txtUsername.getText().isEmpty() ||
-                txtPassword.getText().isEmpty()) {
+        if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty()) {
 
-            showAlert(Alert.AlertType.ERROR,
-                    "Error",
-                    "Ingrese usuario y contraseña");
+            mostrarAlertaError("Rellene todos lo campos");
             return;
         }
 
         try {
 
-            // Cargar dashboard
-            Parent root = FXMLLoader.load(
-                    getClass().getResource("/org/demo/Views/Taller-view.fxml")
-            );
+            if(txtUsername.getText().equals(taller.getNombreUsuario()) && txtPassword.getText().equals(taller.getContrasenia())){
+                // Cargar dashboard
+                Parent root = FXMLLoader.load(
+                        Objects.requireNonNull(getClass().getResource("/org/demo/Views/Taller-view.fxml"))
+                );
+                Stage stage = new Stage();
+                Scene scene = new Scene(root, 1280, 720);
 
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
+                root.setOnMousePressed(event -> {
+                    x = event.getSceneX();
+                    y = event.getSceneY();
 
-            stage.setScene(scene);
-            stage.setTitle("Sistema Taller Bicicletas");
-            stage.show();
+                });
 
-            // Cerrar ventana login actual
-            Stage loginStage = (Stage) btnLogin.getScene().getWindow();
-            loginStage.close();
+                root.setOnMouseDragged(event -> {
+                    stage.setX(event.getScreenX() - x);
+                    stage.setY(event.getScreenY() - y);
+
+                    stage.setOpacity(0.8);
+                });
+
+                root.setOnMouseReleased(event -> stage.setOpacity(1));
+
+                stage.initStyle(StageStyle.TRANSPARENT);
+
+                // Cerrar ventana login actual
+                stage.setScene(scene);
+                stage.show();
+            }else{
+                mostrarAlertaError("Usuario o contraseña inválidos");
+            }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -66,12 +82,4 @@ public class InicioController {
         System.exit(0);
     }
 
-
-    private void showAlert(Alert.AlertType type, String title, String content){
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
 }

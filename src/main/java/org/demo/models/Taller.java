@@ -159,6 +159,7 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         Bicicleta bicicleta = new Bicicleta("GW", TipoBicicleta.URBANA, "Verde", "ABC123", cliente, Year.of(2024));
         Mecanico mecanico = new Mecanico("Chino Moreno", "31312", "123123", "Armenia, Quindío", 50000, EspecialidadMecanico.SUSPENSION);
         OrdenReparacion orden = new OrdenReparacion(cliente, bicicleta, mecanico, LocalDateTime.now(), "La bicicleta está llevada", MotivoReparacion.AJUSTE_FRENOS, 200000,"Cambio en los frenos y otras cosas");
+        orden.marcarCompletado();
         registrarOrden(orden);
         registrarMecanico(mecanico);
         registrarBicicleta(bicicleta);

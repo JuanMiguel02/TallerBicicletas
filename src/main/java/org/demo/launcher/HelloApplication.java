@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("/org/demo/Views/Taller-view.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("/org/demo/login.fxml")));
 
         Scene scene = new Scene(root, 1280,720);
 

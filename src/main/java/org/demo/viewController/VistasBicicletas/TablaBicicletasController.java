@@ -7,8 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import org.demo.controller.BicicletaController;
 import org.demo.models.Bicicleta;
 
@@ -144,6 +146,36 @@ public class TablaBicicletasController {
 
     @FXML
     private void onHistorialServicio() {
-        System.out.println("Botón Historial de Servicios  presionado");
+
+        Bicicleta seleccionada = tablaBicicletas.getSelectionModel().getSelectedItem();
+
+        if (seleccionada == null) {
+            mostrarAlertaError("Seleccione una bicicleta primero");
+            return;
+        }
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/org/demo/Views/BicicletaView/HistorialBicicleta-view.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            HistorialBicicletaController controller =
+                    loader.getController();
+
+            controller.setBicicleta(seleccionada);
+
+            Stage stage = new Stage();
+            stage.setTitle("Historial de Servicios");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

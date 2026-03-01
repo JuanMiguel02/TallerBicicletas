@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.demo.viewController.VistasBicicletas.HistorialBicicletaController">
+
+    <!-- TÍTULO -->
+    <top>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+            <Label text="Historial de Servicios"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+        </VBox>
+    </top>
+
+    <!-- INFORMACIÓN DE LA BICICLETA -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 20;">
+
+            <GridPane hgap="15" vgap="10">
+
+                <Label text="Marca:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="lblMarca" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Tipo:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="lblTipo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Color:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="lblColor" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Año:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label fx:id="lblAnio" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Propietario:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Label fx:id="lblPropietario" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <!-- TABLA DE SERVICIOS -->
+            <TableView fx:id="tablaServicios" prefHeight="300">
+
+                <columns>
+
+                    <TableColumn fx:id="colFecha"
+                                 text="Fecha"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colMotivo"
+                                 text="Motivo"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="colEstado"
+                                 text="Estado"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colMecanico"
+                                 text="Mecánico"
+                                 prefWidth="150"/>
+
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <!-- BOTÓN VOLVER -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10"
+              style="-fx-padding: 15;">
+            <Button text="Volver"
+                    fx:id="btnVolver"
+                    onAction="#volver"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

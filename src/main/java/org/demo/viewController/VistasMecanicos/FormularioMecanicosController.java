@@ -44,7 +44,7 @@ public class FormularioMecanicosController {
     @FXML
     private void guardarMecanico(){
 
-        if(validarCampos()){
+        if(!validarCampos()){
             mostrarAlertaError("Por favor rellene todos los campos");
             return;
         }

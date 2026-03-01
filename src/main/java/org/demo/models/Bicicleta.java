@@ -67,4 +67,14 @@ public class Bicicleta {
     public void setAnio(Year anio) {
         this.anio = anio;
     }
+
+    @Override
+    public String toString() {
+        return "Bicicleta{" +
+                "marca='" + marca + '\'' +
+                ", tipoBicicleta=" + tipoBicicleta +
+                ", color='" + color + '\'' +
+                ", anio=" + anio +
+                '}';
+    }
 }

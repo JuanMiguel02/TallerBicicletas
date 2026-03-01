@@ -38,31 +38,33 @@
                 <Button fx:id="btnNuevaOrden" onAction="#onNuevaOrden" styleClass="os-btn-primary" text="Nueva Orden" />
 
                 <Button fx:id="btnVerDetalle" onAction="#onVerDetalle" styleClass="os-btn-primary" text="Ver Detalle" />
+            <Button layoutX="131.0" layoutY="15.0" onAction="#marcarCompletado" styleClass="os-btn-primary" text="Marcar Como Completado" />
 
                 <Button fx:id="btnEliminar" onAction="#onEliminarOrden" styleClass="os-btn-danger" text="Eliminar" />
 
             </HBox>
 
-            <!-- TABLA -->
+                     <!-- TABLA -->
             <TableView fx:id="tablaOrdenes" styleClass="os-table" VBox.vgrow="ALWAYS">
 
-                <columns>
+                         <columns>
 
-                    <TableColumn fx:id="colNumero" prefWidth="100" text="N° Orden" />
+                             <TableColumn fx:id="colNumero" prefWidth="100" text="N° Orden" />
 
-                    <TableColumn fx:id="colCliente" prefWidth="200" text="Cliente" />
+                             <TableColumn fx:id="colCliente" prefWidth="200" text="Cliente" />
 
-                    <TableColumn fx:id="colBicicleta" prefWidth="150" text="Bicicleta" />
+                             <TableColumn fx:id="colBicicleta" prefWidth="150" text="Bicicleta" />
+               <TableColumn fx:id="colMecanico" prefWidth="150" text="Mecanico" />
 
-                    <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+                             <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+               <TableColumn fx:id="colMotivo" prefWidth="150" text="Motivo" />
 
-                    <TableColumn fx:id="colHora" prefWidth="100" text="Hora" />
+                             <TableColumn fx:id="colEstado" prefWidth="150" text="Estado" />
+               <TableColumn fx:id="colCosto" prefWidth="150" text="Costo" />
 
-                    <TableColumn fx:id="colEstado" prefWidth="150" text="Estado" />
+                         </columns>
 
-                </columns>
-
-            </TableView>
+                     </TableView>
 
         </VBox>
     </center>

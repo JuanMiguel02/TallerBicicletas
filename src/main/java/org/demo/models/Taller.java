@@ -3,7 +3,7 @@ package org.demo.models;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IRegistroMecanicos {
+public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IRegistroMecanicos, IRegistroOrdenes {
 
     private String nombreUsuario;
     private String contrasenia;
@@ -58,14 +58,18 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         return this.mecanicos.remove(mecanico);
     }
 
+    public boolean eliminarOrden(OrdenReparacion orden){
+        return this.reparaciones.remove(orden);
+    }
+
     public boolean actualizarCliente(Cliente cliente){
-        for(int i = 0; i < this.bicicletas.size(); i++){
+        for(int i = 0; i < this.clientes.size(); i++){
             if(cliente.equals(this.clientes.get(i))){
                 this.clientes.set(i, cliente);
                 return true;
             }
         }
-        throw new IllegalArgumentException("Cliente no encontrada");
+        throw new IllegalArgumentException("Cliente no encontrado");
     }
 
     public boolean actualizarBicicleta(Bicicleta bicicleta){
@@ -88,10 +92,19 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         throw new IllegalArgumentException(" Mecánico no encontrado");
     }
 
-    public boolean registrarOrdenReparacion(OrdenReparacion ordenReparacion){
-        return this.reparaciones.add(ordenReparacion);
+    public boolean actualizarOrden(OrdenReparacion orden){
+        for(int i = 0; i < this.reparaciones.size(); i++){
+            if(orden.equals(this.reparaciones.get(i))){
+                this.reparaciones.set(i, orden);
+                return true;
+            }
+        }
+        throw new IllegalArgumentException("Orden no encontrada");
     }
 
+    public boolean registrarOrden(OrdenReparacion ordenReparacion){
+        return this.reparaciones.add(ordenReparacion);
+    }
 
     public boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
         for(OrdenReparacion orden : reparaciones){
@@ -127,6 +140,13 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
             }
         }
         return false;
+    }
+
+    public void limpiarDatos() {
+        bicicletas.clear();
+        clientes.clear();
+        mecanicos.clear();
+        reparaciones.clear();
     }
 
     public String getNombreUsuario() {

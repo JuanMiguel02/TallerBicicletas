@@ -5,17 +5,18 @@ import java.util.UUID;
 
 public class OrdenReparacion {
 
-    private UUID id;
+    private final UUID id;
     private Cliente cliente;
     private Bicicleta bicicleta;
     private Mecanico mecanico;
     private LocalDateTime fechaYHora;
-    private String motivo;
+    private MotivoReparacion motivo;
     private String diagnostico;
     private int costo;
     private String descripcionTrabajo;
+    private EstadoOrden estado;
 
-    OrdenReparacion(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String s, String motivo, int costo, String descripcionTrabajo) {
+     public OrdenReparacion(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String diagnostico, MotivoReparacion motivo, int costo, String descripcionTrabajo) {
         this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.bicicleta = bicicleta;
@@ -23,10 +24,17 @@ public class OrdenReparacion {
         this.fechaYHora = fechaYHora;
         this.motivo = motivo;
         this.diagnostico = diagnostico;
-        this.costo = this.costo;
+        this.costo = costo;
         this.descripcionTrabajo = descripcionTrabajo;
+        this.estado = EstadoOrden.EN_CURSO;
     }
 
+    //Pruebas
+    public OrdenReparacion(Mecanico mecanico, LocalDateTime fechaYHora){
+        this.id = UUID.randomUUID();
+        this.mecanico = mecanico;
+        this.fechaYHora = fechaYHora;
+    }
 
     public UUID getId() {
         return id;
@@ -34,6 +42,14 @@ public class OrdenReparacion {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public void marcarCompletado(){
+         this.estado = EstadoOrden.COMPLETADO;
+    }
+
+    public EstadoOrden getEstado() {
+        return estado;
     }
 
     public void setCliente(Cliente cliente) {
@@ -64,11 +80,11 @@ public class OrdenReparacion {
         this.fechaYHora = fechaYHora;
     }
 
-    public String getMotivo() {
+    public MotivoReparacion getMotivo() {
         return motivo;
     }
 
-    public void setMotivo(String motivo) {
+    public void setMotivo(MotivoReparacion motivo) {
         this.motivo = motivo;
     }
 

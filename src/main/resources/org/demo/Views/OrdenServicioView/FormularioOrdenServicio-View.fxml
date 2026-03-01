@@ -66,7 +66,7 @@
     <VBox spacing="8" styleClass="os-form-container">
 
         <Label styleClass="os-label" text="Motivo del Servicio:" />
-        <TextArea fx:id="txtMotivo" prefRowCount="3" styleClass="os-textarea" />
+      <ComboBox fx:id="cmbMotivo" prefHeight="25.0" prefWidth="428.0" />
 
         <Label styleClass="os-label" text="Diagnóstico:" />
         <TextArea fx:id="txtDiagnostico" prefRowCount="3" styleClass="os-textarea" />

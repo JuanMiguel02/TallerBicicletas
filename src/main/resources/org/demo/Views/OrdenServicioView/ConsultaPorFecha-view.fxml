@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" spacing="15" styleClass="os-root" stylesheets="@../../styles/ordenServicio.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24.0.1" fx:controller="org.demo.viewController.VistaOrdenServicio.ConsultaPorFechaController">
+<VBox alignment="TOP_CENTER" spacing="15" styleClass="os-root" stylesheets="@../../styles/ordenServicio.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.VistaOrdenServicio.ConsultaPorFechaController">
 
     <!-- TITULO -->
     <Label styleClass="os-title" text="Consulta de órdenes por fecha" />
@@ -27,19 +27,18 @@
         <Button onAction="#onBuscar" styleClass="os-btn-primary" text="Buscar" />
     </HBox>
 
-    <!-- TABLA -->
-    <TableView fx:id="tablaResultados" prefHeight="400" styleClass="os-table">
-
-        <columns>
-            <TableColumn fx:id="colNumero" prefWidth="100" text="N° Orden" />
-            <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
-            <TableColumn fx:id="colHora" prefWidth="100" text="Hora" />
-            <TableColumn fx:id="colCliente" prefWidth="200" text="Cliente" />
-            <TableColumn fx:id="colEstado" prefWidth="150" text="Estado" />
-        </columns>
-
-    </TableView>
-
     <Button onAction="#onVolver" styleClass="os-btn-primary" text="Volver" />
+   <TableView fx:id="tablaOrdenes" styleClass="os-table">
+      <columns>
+         <TableColumn fx:id="colNumero" prefWidth="100" text="N° Orden" />
+         <TableColumn fx:id="colCliente" prefWidth="200" text="Cliente" />
+         <TableColumn fx:id="colBicicleta" prefWidth="150" text="Bicicleta" />
+         <TableColumn fx:id="colMecanico" prefWidth="150" text="Mecanico" />
+         <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+         <TableColumn fx:id="colMotivo" prefWidth="150" text="Motivo" />
+         <TableColumn fx:id="colEstado" prefWidth="150" text="Estado" />
+         <TableColumn fx:id="colCosto" prefWidth="150" text="Costo" />
+      </columns>
+   </TableView>
 
 </VBox>

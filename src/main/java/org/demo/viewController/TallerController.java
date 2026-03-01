@@ -67,6 +67,17 @@ public class TallerController {
      public StackPane contenedorCentro;
 
 
+    public void cerrar() {
+        System.exit(0);
+    }
+
+    public void minimizar() {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setIconified(true);
+
+    }
+
+
     private void cargarVista(String rutaFXML) {
         try {
             Parent vista = FXMLLoader.load(

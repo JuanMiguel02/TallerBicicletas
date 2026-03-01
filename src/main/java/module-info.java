@@ -20,5 +20,6 @@ module org.demo {
     opens org.demo.viewController.VistasClientes to javafx.fxml;
     opens org.demo.viewController.VistasBicicletas to javafx.fxml;
     opens org.demo.viewController.VistasMecanicos to javafx.fxml;
+    opens org.demo.viewController.VistaOrdenServicio to javafx.fxml;
 
 }

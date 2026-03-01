@@ -1,0 +1,122 @@
+
+.main-root{
+    -fx-background-color: #f4f6f7;
+    -fx-font-family: "Times New Roman";
+}
+
+
+.top-bar{
+    -fx-background-color: linear-gradient(to right, #272b3f, #256b51);
+    -fx-padding: 15px;
+}
+
+.top-title{
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+
+.sidebar{
+    -fx-background-color: linear-gradient(to bottom, #272b3f, #1f4e3b);
+}
+
+.sidebar-text{
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.sidebar-user{
+    -fx-text-fill: #e4e4e4;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-role{
+    -fx-text-fill: #a8d5c2;
+    -fx-font-size: 13px;
+}
+
+.sidebar-separator{
+    -fx-stroke: #3c7a63;
+    -fx-stroke-width: 1.5;
+}
+
+.menu-container{
+    -fx-padding: 10 0 0 0;
+}
+
+
+.btn-admin{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 15 8 15;
+}
+
+.btn-admin:hover{
+    -fx-background-color: #278f96;
+}
+
+.btn-admin:pressed{
+    -fx-background-color: #2d645f;
+}
+
+
+
+
+.center-container{
+    -fx-background-color: #f4f6f7;
+}
+
+.dashboard-view{
+    -fx-background-color: transparent;
+}
+
+
+.stats-container{
+    -fx-padding: 20;
+}
+
+.stat-card{
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0.2, 0, 4);
+}
+
+.stat-card:hover{
+    -fx-effect: dropshadow(gaussian, rgba(39,143,150,0.4), 20, 0.3, 0, 6);
+}
+
+.stat-value{
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #256b51;
+}
+
+.stat-label{
+    -fx-font-size: 15px;
+    -fx-text-fill: #555;
+}
+
+
+.chart-dashboard{
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 15, 0.2, 0, 4);
+}
+
+.chart-title{
+    -fx-text-fill: #256b51;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+
+.bottom-bar{
+    -fx-background-color: linear-gradient(to right, #272b3f, #256b51);
+}

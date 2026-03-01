@@ -10,47 +10,46 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.VistasClientes.TablaClientesController">
+<BorderPane styleClass="table-root" stylesheets="@../../styles/FormularioTablas.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.VistasClientes.TablaClientesController">
 
-
+    <!-- TITULO -->
     <top>
-        <VBox spacing="10">
+        <VBox spacing="10" styleClass="table-header">
             <padding>
                 <Insets bottom="10" left="20" right="20" top="20" />
             </padding>
 
-            <Label text="Gestión de Clientes" />
+            <Label styleClass="table-title" text="Gestión de Clientes" />
 
-            <Separator />
+            <Separator styleClass="form-separator" />
         </VBox>
     </top>
 
-
+    <!-- CONTENIDO -->
     <center>
-        <VBox spacing="15">
+        <VBox spacing="15" styleClass="table-container">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="10" />
             </padding>
 
-            <HBox spacing="10">
-                <Button fx:id="btnNuevo" onAction="#onNuevoCliente" text="Nuevo Cliente" />
+            <!-- BOTONES -->
+            <HBox spacing="10" styleClass="table-actions">
 
-                <Button fx:id="btnEditar" onAction="#onEditarCliente" text="Editar" />
+                <Button fx:id="btnNuevo" onAction="#onNuevoCliente" styleClass="btn-primary" text="Nuevo Cliente" />
 
-                <Button fx:id="btnEliminar" onAction="#onEliminarCliente" text="Eliminar" />
+                <Button fx:id="btnEditar" onAction="#onEditarCliente" styleClass="btn-primary" text="Editar" />
+
+                <Button fx:id="btnEliminar" onAction="#onEliminarCliente" styleClass="btn-danger" text="Eliminar" />
             </HBox>
 
-
-            <TableView fx:id="tablaClientes" VBox.vgrow="ALWAYS">
+            <!-- TABLA -->
+            <TableView fx:id="tablaClientes" styleClass="table-view-custom" VBox.vgrow="ALWAYS">
 
                 <columns>
-               <TableColumn fx:id="colId" prefWidth="200" text="Id" />
+                    <TableColumn fx:id="colId" prefWidth="200" text="Id" />
                     <TableColumn fx:id="colNombre" prefWidth="200" text="Nombre Completo" />
-
                     <TableColumn fx:id="colIdentificacion" prefWidth="150" text="Identificación" />
-
                     <TableColumn fx:id="colTelefono" prefWidth="150" text="Teléfono" />
-
                     <TableColumn fx:id="colDireccion" prefWidth="250" text="Dirección" />
                 </columns>
 

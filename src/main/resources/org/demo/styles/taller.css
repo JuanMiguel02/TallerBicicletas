@@ -120,3 +120,21 @@
 .bottom-bar{
     -fx-background-color: linear-gradient(to right, #272b3f, #256b51);
 }
+
+.close{
+    -fx-background-color: transparent;
+    -fx-cursor:hand;
+}
+
+.close:hover{
+    -fx-background-color: #ff3547;
+}
+
+.minimize{
+    -fx-background-color: transparent;
+    -fx-cursor:hand;
+}
+
+.minimize:hover{
+    -fx-background-color: #ddd;
+}

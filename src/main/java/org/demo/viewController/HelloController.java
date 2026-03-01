@@ -21,7 +21,6 @@ public class HelloController {
     private TextField txtUsername;
 
 
-
     private double x = 0;
     private double y = 0;
 

@@ -50,7 +50,7 @@ public class FormularioMecanicosController {
 
                 if(mecanicoController.registrarMecanico(mecanicoNuevo)){
                     mostrarAlerta("Éxito", "Mecánico registrado", Alert.AlertType.INFORMATION);
-                    limpiarCampos();
+
                 }else{
                     mostrarAlertaError("Este mecánico con documento: " + mecanicoNuevo.getDocumento() + " ya existe");
                 }
@@ -66,10 +66,10 @@ public class FormularioMecanicosController {
 
                 if(mecanicoController.actualizarMecanico(mecanicoEditar)){
                     mostrarAlerta("Éxito", "Mecánico actualizado", Alert.AlertType.INFORMATION);
-                    limpiarCampos();
                 }
 
             }
+            limpiarCampos();
         }catch(Exception e){
             mostrarAlertaError("No se ha podido registrar al mecánico");
         }

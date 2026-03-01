@@ -1,6 +1,7 @@
 package org.demo.controller;
 
 import org.demo.models.Bicicleta;
+import org.demo.models.Cliente;
 import org.demo.models.Taller;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public class BicicletaController {
         return taller.actualizarBicicleta(bicicleta);
     }
 
+    public List<Cliente> obtenerClientes(){
+        return taller.getClientes();
+    }
 
 
 }

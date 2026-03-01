@@ -26,13 +26,11 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
     }
 
     public boolean registrarCliente(Cliente cliente) {
-
         return this.clientes.add(cliente);
     }
 
     public boolean registrarBicicleta(Bicicleta bicicleta){
-        this.bicicletas.add(bicicleta);
-        return false;
+       return this.bicicletas.add(bicicleta);
     }
 
     public boolean registrarMecanico(Mecanico mecanico){
@@ -88,14 +86,6 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         return this.reparaciones.add(ordenReparacion);
     }
 
-    public boolean crearOrden(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, String descripcionTrabajo){
-        if(!hayMecanicoDisponible(mecanico, fechaYHora)){
-            throw new IllegalArgumentException("El mecánico ya tiene un turno en esta hora");
-        }
-        OrdenReparacion orden = new OrdenReparacion( cliente,  bicicleta, mecanico,  fechaYHora, motivo, diagnostico,  costo, descripcionTrabajo);
-        return registrarOrdenReparacion(orden);
-
-    }
 
     public boolean hayMecanicoDisponible(Mecanico mecanico, LocalDateTime fechaYHora){
         for(OrdenReparacion orden : reparaciones){

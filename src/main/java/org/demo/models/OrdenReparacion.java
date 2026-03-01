@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class OrdenReparacion {
 
-    private final UUID id;
+    private UUID id;
     private Cliente cliente;
     private Bicicleta bicicleta;
     private Mecanico mecanico;
@@ -15,7 +15,7 @@ public class OrdenReparacion {
     private int costo;
     private String descripcionTrabajo;
 
-    public OrdenReparacion(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String motivo, String diagnostico, int costo, String descripcionTrabajo) {
+    OrdenReparacion(Cliente cliente, Bicicleta bicicleta, Mecanico mecanico, LocalDateTime fechaYHora, String s, String motivo, int costo, String descripcionTrabajo) {
         this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.bicicleta = bicicleta;
@@ -23,9 +23,10 @@ public class OrdenReparacion {
         this.fechaYHora = fechaYHora;
         this.motivo = motivo;
         this.diagnostico = diagnostico;
-        this.costo = costo;
+        this.costo = this.costo;
         this.descripcionTrabajo = descripcionTrabajo;
     }
+
 
     public UUID getId() {
         return id;

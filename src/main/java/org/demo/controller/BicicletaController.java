@@ -9,7 +9,7 @@ public class BicicletaController {
 
     private final Taller taller = Taller.getInstancia();
 
-    public boolean registrarBicielta(Bicicleta bicicleta){
+    public boolean registrarBicicleta(Bicicleta bicicleta){
         return taller.registrarBicicleta(bicicleta);
     }
 

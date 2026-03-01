@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class HelloController {
+public class InicioController {
     @FXML
     private Button btnClose;
 

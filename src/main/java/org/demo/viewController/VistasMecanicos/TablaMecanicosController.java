@@ -21,7 +21,6 @@ import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 public class TablaMecanicosController {
 
     private final MecanicoController mecanicoController = new MecanicoController();
-    private ObservableList<Mecanico> listaMecanicos;
     private Mecanico mecanicoSeleccionado;
 
     @FXML
@@ -66,8 +65,7 @@ public class TablaMecanicosController {
     }
 
     private void cargarMecanicos(){
-        listaMecanicos = FXCollections.observableArrayList(mecanicoController.listarMecanicos());
-        tablaMecanicos.setItems(listaMecanicos);
+        tablaMecanicos.setItems(mecanicoController.listarMecanicos());
     }
 
     @FXML

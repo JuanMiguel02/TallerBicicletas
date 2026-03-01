@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<BorderPane fx:id="root" prefHeight="800" prefWidth="1200" styleClass="main-root" stylesheets="@../styles/taller.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.TallerController">
+<BorderPane fx:id="root" prefHeight="800" prefWidth="1200" styleClass="main-root" stylesheets="@../styles/taller.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.demo.viewController.DashboardTallerController">
 
     <!-- MENÚ LATERAL -->
     <left>
@@ -89,26 +89,26 @@
 
                                 <!-- Total Bicicletas -->
                                 <VBox fx:id="statCard1" alignment="CENTER" prefWidth="300.0" spacing="20.0" styleClass="stat-card">
-                                    <Label fx:id="lblTotalUsuarios" styleClass="stat-value" text="0" />
+                                    <Label fx:id="lblTotalBicicletas" styleClass="stat-value" text="0" />
                                     <Label styleClass="stat-label" text="Bicicletas Registradas" />
                                 </VBox>
 
                                 <!-- Clientes -->
                                 <VBox fx:id="statCard2" alignment="CENTER" prefWidth="300.0" spacing="20.0" styleClass="stat-card">
-                                    <Label styleClass="stat-value" text="0" />
+                                    <Label fx:id="lblTotalClientes" styleClass="stat-value" text="0" />
                                     <Label styleClass="stat-label" text="Clientes Registrados" />
                                 </VBox>
 
                                 <!-- Ordenes -->
                                 <VBox fx:id="statCard3" alignment="CENTER" prefWidth="300.0" spacing="20.0" styleClass="stat-card">
-                                    <Label styleClass="stat-value" text="0" />
+                                    <Label fx:id="lblOrdenesActivas" styleClass="stat-value" text="0" />
                                     <Label styleClass="stat-label" text="Ordenes Activas" />
                                 </VBox>
 
                             </children>
                         </HBox>
 
-                        <AreaChart fx:id="graficaServicios" layoutX="111.0" layoutY="337.0" prefHeight="300" prefWidth="800" styleClass="chart-dashboard" title="Servicios Por Mes">
+                        <AreaChart fx:id="graficaServicios" layoutX="95.0" layoutY="237.0" prefHeight="429.0" prefWidth="800" styleClass="chart-dashboard" title="Servicios Por Mes">
                             <xAxis>
                                 <CategoryAxis side="BOTTOM" />
                             </xAxis>

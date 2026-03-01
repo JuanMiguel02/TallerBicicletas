@@ -1,21 +1,26 @@
 package org.demo.models;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.Year;
 
 public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IRegistroMecanicos, IRegistroOrdenes {
 
     private String nombreUsuario;
     private String contrasenia;
     private static Taller instancia;
-    private final ArrayList<Bicicleta> bicicletas = new ArrayList<>();
-    private final ArrayList<Cliente> clientes = new ArrayList<>();
-    private final ArrayList<Mecanico> mecanicos = new ArrayList<>();
-    private final ArrayList<OrdenReparacion> reparaciones = new ArrayList<>();
+    private final ObservableList<Bicicleta> bicicletas = FXCollections.observableArrayList();
+    private final ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+    private final ObservableList<Mecanico> mecanicos = FXCollections.observableArrayList();
+    private final ObservableList<OrdenReparacion> reparaciones = FXCollections.observableArrayList();
 
     private Taller() {
         this.nombreUsuario = "taller";
         this.contrasenia = "12345";
+
+        cargarDatosEjemplo();
     }
 
     public static Taller getInstancia() {
@@ -149,6 +154,18 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         reparaciones.clear();
     }
 
+    private void cargarDatosEjemplo(){
+        Cliente cliente = new Cliente("Paco Jones", "123214", "3213123", "Armenia, Quindío");
+        Bicicleta bicicleta = new Bicicleta("GW", TipoBicicleta.URBANA, "Verde", "ABC123", cliente, Year.of(2024));
+        Mecanico mecanico = new Mecanico("Chino Moreno", "31312", "123123", "Armenia, Quindío", 50000, EspecialidadMecanico.SUSPENSION);
+        OrdenReparacion orden = new OrdenReparacion(cliente, bicicleta, mecanico, LocalDateTime.now(), "La bicicleta está llevada", MotivoReparacion.AJUSTE_FRENOS, 200000,"Cambio en los frenos y otras cosas");
+        registrarOrden(orden);
+        registrarMecanico(mecanico);
+        registrarBicicleta(bicicleta);
+        registrarCliente(cliente);
+
+    }
+
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -157,19 +174,19 @@ public final class Taller implements  IRegistroBicicletas, IRegistroClientes, IR
         this.nombreUsuario = nombreUsuario;
     }
 
-    public ArrayList<OrdenReparacion> getReparaciones() {
+    public ObservableList<OrdenReparacion> getReparaciones() {
         return reparaciones;
     }
 
-    public ArrayList<Cliente> getClientes() {
+    public ObservableList<Cliente> getClientes() {
         return clientes;
     }
 
-    public ArrayList<Bicicleta> getBicicletas() {
+    public ObservableList<Bicicleta> getBicicletas() {
         return bicicletas;
     }
 
-    public ArrayList<Mecanico> getMecanicos() {
+    public ObservableList<Mecanico> getMecanicos() {
         return mecanicos;
     }
 

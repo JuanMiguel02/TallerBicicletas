@@ -1,5 +1,6 @@
 package org.demo.controller;
 
+import javafx.collections.ObservableList;
 import org.demo.models.*;
 
 import java.util.List;
@@ -20,19 +21,19 @@ public class OrdenServicioController {
         return taller.actualizarOrden(orden);
     }
 
-    public List<OrdenReparacion> listarOrdenes(){
+    public ObservableList<OrdenReparacion> listarOrdenes(){
         return taller.getReparaciones();
     }
 
-    public List<Cliente> listarClientes(){
+    public ObservableList<Cliente> listarClientes(){
         return taller.getClientes();
     }
 
-    public List<Bicicleta> listarBicicletas(){
+    public ObservableList<Bicicleta> listarBicicletas(){
         return taller.getBicicletas();
     }
 
-    public List<Mecanico> listarMecanicos(){
+    public ObservableList<Mecanico> listarMecanicos(){
         return taller.getMecanicos();
     }
 

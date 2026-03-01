@@ -1,5 +1,6 @@
 package org.demo.controller;
 
+import javafx.collections.ObservableList;
 import org.demo.models.Mecanico;
 import org.demo.models.Taller;
 
@@ -17,7 +18,7 @@ public class MecanicoController {
         return taller.eliminarMecanico(mecanico);
     }
 
-    public List<Mecanico> listarMecanicos(){
+    public ObservableList<Mecanico> listarMecanicos(){
         return taller.getMecanicos();
     }
 

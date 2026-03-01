@@ -20,7 +20,6 @@ import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 public class TablaBicicletasController {
 
     private final BicicletaController bicicletaController = new BicicletaController();
-    private ObservableList<Bicicleta> listaBicicletas;
     private Bicicleta bicicletaSeleccionada;
 
     @FXML
@@ -61,8 +60,7 @@ public class TablaBicicletasController {
     }
 
     private void cargarBicicletas() {
-        listaBicicletas = FXCollections.observableArrayList(bicicletaController.listarBicicletas());
-        tablaBicicletas.setItems(listaBicicletas);
+        tablaBicicletas.setItems(bicicletaController.listarBicicletas());
     }
 
     @FXML

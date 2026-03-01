@@ -1,5 +1,6 @@
 package org.demo.controller;
 
+import javafx.collections.ObservableList;
 import org.demo.models.Bicicleta;
 import org.demo.models.Cliente;
 import org.demo.models.Taller;
@@ -18,7 +19,7 @@ public class BicicletaController {
         return taller.eliminarBicicleta(bicicleta);
     }
 
-    public List<Bicicleta> listarBicicletas(){
+    public ObservableList<Bicicleta> listarBicicletas(){
         return taller.getBicicletas();
     }
 
@@ -26,7 +27,7 @@ public class BicicletaController {
         return taller.actualizarBicicleta(bicicleta);
     }
 
-    public List<Cliente> obtenerClientes(){
+    public ObservableList<Cliente> obtenerClientes(){
         return taller.getClientes();
     }
 

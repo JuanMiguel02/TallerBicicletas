@@ -22,7 +22,6 @@ import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 public class TablaOrdenServicioController {
 
     private final OrdenServicioController ordenController = new OrdenServicioController();
-    private ObservableList<OrdenReparacion> listaOrdenes;
     private OrdenReparacion ordenSeleccionada;
 
     @FXML
@@ -88,8 +87,7 @@ public class TablaOrdenServicioController {
     }
 
     private void cargarOrdenes() {
-        listaOrdenes = FXCollections.observableArrayList(ordenController.listarOrdenes());
-        tablaOrdenes.setItems(listaOrdenes);
+        tablaOrdenes.setItems(ordenController.listarOrdenes());
     }
 
     @FXML

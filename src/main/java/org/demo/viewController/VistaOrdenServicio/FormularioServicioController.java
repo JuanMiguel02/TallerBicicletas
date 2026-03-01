@@ -58,19 +58,12 @@ public class FormularioServicioController {
         }
 
         try {
-
-            if (ordenEditar == null) {
-                // MODO CREAR
                 OrdenReparacion nuevaOrden = crearOrden();
-
                 if (ordenController.registrarOrden(nuevaOrden)) {
                     mostrarAlerta("Éxito", "Orden registrada correctamente", Alert.AlertType.INFORMATION);
                 } else {
                     mostrarAlertaError("No se pudo registrar la orden");
                 }
-
-            }
-
 
             limpiarCampos();
 

@@ -22,7 +22,7 @@ import static org.demo.services.ServicioAlerta.mostrarAlertaError;
 public class TablaClientesController {
 
     private final ClienteController clienteController = new ClienteController();
-    private ObservableList<Cliente> listaClientes;
+    private static ObservableList<Cliente> listaClientes;
     private Cliente clienteSeleccionado;
 
     @FXML
@@ -59,8 +59,9 @@ public class TablaClientesController {
     }
 
     private void cargarClientes(){
-        listaClientes = FXCollections.observableArrayList(clienteController.listarClientes());
-        tablaClientes.setItems(listaClientes);
+        tablaClientes.setItems(
+                clienteController.listarClientes()
+        );
     }
 
 
